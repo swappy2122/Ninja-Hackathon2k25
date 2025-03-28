@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Management</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } 
+        
+        /* ------------------------------- */
+        /* navbar */
+        
+        /* Navbar styling */
+        header {
+            background: rgba(21, 20, 20, 0.8);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* Logo styling */
+        .logo img {
+            width: 60px;
+            height: auto;
+        }
+        
+        /* Navigation links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links li {
+            display: inline;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            background: #ff004f;
+            color: black;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+        }
+        
+        /* ---------------------------------------- */
+        /* Hero Section */
+        .hero {
+            background: url('https://iskcondwarka.org/wp-content/uploads/2025/01/How-to-Donate-Food-to-the-Poor.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 20px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline;
+            margin: 50px ;
+            
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .btn:hover {
+            background: #ff004f;
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            color: rgb(244, 242, 242);
+            text-align: center;
+            background-color: #444;
+        }
+        
+        .feature-card {
+            width: 30%;
+            padding: 20px;
+            background: rgb(155, 147, 147);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background-color: #f9f9f9;
+            color: #261e1e;
+        }
+        
+        .feature-card img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #5a5858;
+        }
+        
+        .how-it-works h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #c5c0c0;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .step {
+            width: 30%;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            background: rgb(155, 147, 147);
+        }
+        
+        .step img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        
+        .step p {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        /* footer */
+        
+        /* Footer Section */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .footer-container h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-container p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .social-links a {
+            margin: 0 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .social-links img {
+            width: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+
+</head>
+<body>
+<!-- navbar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx8mbKFL692jrSPHJ-xMOBLBkauyUHNa5j7Q&s" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="above.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="dashboard.html">Admin</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- hero-section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Fight Food Waste, Feed the Hungry</h1>
+            <p>Join us in making a difference by donating surplus food.</p><br><br>
+            <a href="donar.html" class="btn">I'm a Donar</a>
+            <a href="reciver.html" class="btn">I'm a Reciver</a>
+        </div>
+    </section>
+
+    <!-- feature-section -->
+    <section class="features">
+        <div class="feature-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTImZsUiWR7mfXFnVmeNVjCS1rA7E_5eBfiFA&s" alt="Reduce Waste">
+            <h3>Reduce Food Waste</h3>
+            <p>Ensure excess food reaches those who need it instead of being wasted.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb9lRdNjLAxXrfgSI7OIxpDt6GyNawzbVpEQ&s" alt="Help the Needy">
+            <h3>Help the Needy</h3>
+            <p>Donate surplus food to feed the underprivileged and hungry.</p>
+        </div>
+        <div class="feature-card">
+            <img src="https://www.shutterstock.com/image-vector/sustainable-development-reuse-recycle-renew-600nw-2476002453.jpg" alt="Sustainable Future">
+            <h3>Sustainable Future</h3>
+            <p>Contribute to a better world by reducing food wastage and supporting sustainability.</p>
+        </div>
+    </section>
+    
+ <!-- how it work -->
+    <section class="how-it-works">
+        <h2 ><b>How It Works </b></h2>
+        <div class="steps">
+            <div class="step">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0s479c-5l_yYsM2NSN9-0SLAQdcn864FPYg&s" alt="Donate">
+                <h3>Step 1: Donate Food</h3>
+                <p>Submit your food donation details using our easy-to-use form.</p>
+            </div>
+            <div class="step">
+                <img src="data:image/jpeg;base64,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" alt="Pickup">
+                <h3>Step 2: Pickup by Volunteers</h3>
+                <p>Our volunteers will collect the food and ensure safe delivery.</p>
+            </div>
+            <div class="step">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyKKwWnVRo_E95sYOac-zddzralSsXbKN5hz6BQ7MB2Zx8gSdKN7Pku-SPUV0ggBy8CVEbL6cVcO9wFAqmqPkW0R8DmptcCg_Va35GFxMslmVs4J0Ha1qtXn_rNYxZ3mOgKQURc31j-PF5/s1600/pic+3.jpg" alt="Deliver">
+                <h3>Step 3: Distribute to the Needy</h3>
+                <p>The food is delivered to NGOs and people in need.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- footer -->
+    <footer>
+        <div class="footer-container">
+            <h3>...Waste2Worth.....</h3>
+         
+            <div class="social-links">
+                <a href="https://www.facebook.com/foodwastemanagement" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtm2j7RcRyFyWN3Q3k1WWcdTFsWRmHYvFOCg&s" alt="Facebook"> </a>
+                <a href="https://www.linkedin.com/company/foodwastemanagement" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_IlQyb_IOoIe8dCMRRTeoVZ4uyY5ZbLVpw&s" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/foodwastemanagement" target="_blank"><img src="https://images.template.net/76791/Free-Instagram-Logo-Vector-1.jpg" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2025 Food Waste Management. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

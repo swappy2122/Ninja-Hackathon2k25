@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations</title>
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --white: #ffffff;
+            --table-header-bg: #2ecc71;
+            --table-header-text: #ffffff;
+            --table-row-hover: #eafaf1;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: var(--white);
+            padding: 20px;
+        }
+        
+        .sidebar .logo h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--white);
+        }
+        
+        .nav-menu {
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-bottom: 10px;
+        }
+        
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: var(--primary-color);
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .recent-donations {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .donations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        
+        .donations-table th, 
+        .donations-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .donations-table th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .donations-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .donations-table tr:hover {
+            background-color: var(--table-row-hover);
+        }
+        
+        .donations-table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>WFM Admin</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="donation.html" class="active">Donations</a></li>
+                <li><a href="log-in.html" id="logout-btn">Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <div class="recent-donations">
+                <h2>Donations</h2>
+                <table class="donations-table" id="donations-table">
+                    <thead>
+                        <tr>
+                            <th>Donor</th>
+                            <th>Food Type</th>
+                            <th>Quantity</th>
+                            <th>City</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="donations-tbody">
+                        <!-- Donations will be dynamically populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+   
+
+    // Function to populate the donations table
+    function populateDonationsTable() {
+        const tbody = document.getElementById("donations-tbody");
+        donationsData.forEach(donation => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${donation.donor}</td>
+                <td>${donation.foodType}</td>
+                <td>${donation.quantity}</td>
+                <td>${donation.city}</td>
+                <td>${donation.date}</td>
+                <td>${donation.status}</td>
+            `;
+
+            tbody.appendChild(row);
+        });
+    }
+
+    // Call the function to populate the table on page load
+    document.addEventListener("DOMContentLoaded", populateDonationsTable);
+</script>
+</html>

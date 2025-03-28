@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Food - Food Waste Management</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("public/assets/hero-bg.jpg")  }
+        
+        /* ------------------------------- */
+        /* navbar */
+        
+        /* Navbar styling */
+        header {
+            background: rgba(21, 20, 20, 0.8);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* Logo styling */
+        .logo img {
+            width: 60px;
+            height: auto;
+        }
+        
+        /* Navigation links */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links li {
+            display: inline;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover {
+            background: #ff004f;
+            color: black;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+        }
+        
+        
+        /* Donate Form */
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: 100px auto 40px;  /* Increased top margin */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        textarea {
+            resize: none;
+        }
+        
+        /* Submit Button */
+        .btn-submit {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 1px solid #ff004f;
+            padding: 14px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: rgb(216, 35, 35);
+        }
+        
+        .btn-submit:hover {
+            background: #ff004f;
+            color: #000000;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        .social-links img {
+            width: 30px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        
+        .social-links img:hover {
+            transform: scale(1.1);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx8mbKFL692jrSPHJ-xMOBLBkauyUHNa5j7Q&s" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="above.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="dashboard.html">Admin</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Donate Form -->
+    <div class="container">
+        <h2 class="text-center">Donate Food</h2>
+        <form>
+            <div class="form-group">
+                <label>Food Name</label>
+                <input type="text" class="form-control" placeholder="Enter food name" required>
+            </div>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" class="form-control" placeholder="Enter quantity" required>
+            </div>
+            <div class="form-group">
+                <label>Expiry Date</label>
+                <input type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Pickup Location</label>
+                <input type="text" class="form-control" placeholder="Enter address" required>
+            </div>
+            <div class="form-group">
+                <label>Contact Number</label>
+                <input type="tel" class="form-control" placeholder="Enter your number" required>
+            </div>
+            <div class="form-group">
+                <label>Additional Notes (Optional)</label>
+                <textarea class="form-control" rows="3" placeholder="Any special instructions"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Donation</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <h3>...Waste2Worth.....</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/foodwastemanagement" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtm2j7RcRyFyWN3Q3k1WWcdTFsWRmHYvFOCg&s" alt="Facebook">
+                </a>
+                <a href="https://www.linkedin.com/company/foodwastemanagement" target="_blank">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_IlQyb_IOoIe8dCMRRTeoVZ4uyY5ZbLVpw&s" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/foodwastemanagement" target="_blank">
+                    <img src="https://images.template.net/76791/Free-Instagram-Logo-Vector-1.jpg" alt="Instagram">
+                </a>
+            </div>
+            <p>&copy; 2025 Food Waste Management. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
